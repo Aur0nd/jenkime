@@ -2,7 +2,8 @@ pipeline {
 	agent { docker { image 'node:13.8'} }
 	environment {
 		dockerHome = tool 'MyDocker'
-		PATH = "$dockerHome/bin:$PATH"  // Add Mydocker home to $PATH to execute shell /bin scripts
+		mavenHome = tool 'MyMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"  // Add Mydocker home to $PATH to execute shell /bin scripts
 	}
 	stages {
 		stage('Checkout') { 
@@ -10,6 +11,7 @@ pipeline {
 				// sh 'node --version'
 				// $env.ENV_NAME is used for Jenkins variables
 				// $VAR ($PATH) is used for image variable
+				echo 'mvn --version'
 				echo 'docker version'
 				echo "Build"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
