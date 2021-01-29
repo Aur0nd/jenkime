@@ -19,15 +19,17 @@ pipeline {
 				}
 			}
 		} 
+
 	post {
 		always {
 			echo 'All stages were run'
 		}
-		}
+		
 		success {
 			echo 'Stages were successful'					
 		}
 		failure {
 			echo 'Stages failed'
 		}
+	}
 }
