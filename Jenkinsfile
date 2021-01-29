@@ -49,7 +49,7 @@ pipeline {
 					//dockerImage = docker.build("aurond/wrapper:${env.BUILD_TAG}")
 				}
 			}
-		}
+	//}
 
 		stage('Push Docker Image') {
 			steps {
@@ -61,7 +61,5 @@ pipeline {
 			}
 		 }
 		}
-	
-
   }	
-//}
+}
