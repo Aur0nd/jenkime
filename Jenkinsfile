@@ -22,19 +22,19 @@ pipeline {
 				echo "JOB_NAME - $env.JOB_NAME"
 				echo "PATH - $PATH"
 
-	}
-}
+	  }
+    }   
 		stage('Compile') { 
 			steps { 
 				sh "mvn clean compile" // Install dependencies and compiles the code
- }
-}
+       }
+     }
 
 		stage('Test') { 
 			steps { 
 				sh "mvn test"
- }
-}
+     }
+   }
 
 		stage('Integration Test') { 
 			steps { 			
@@ -75,3 +75,5 @@ pipeline {
 			echo 'Stages failed'
 		}
 	}
+	}
+}
