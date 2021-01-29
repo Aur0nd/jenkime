@@ -61,7 +61,7 @@ pipeline {
 			}
 		 }
 		}
-
+	}
 
 	post {
 		always {
@@ -75,5 +75,5 @@ pipeline {
 			echo 'Stages failed'
 		}
 	}
-	}
+	
 }
