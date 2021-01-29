@@ -26,7 +26,7 @@ pipeline {
 }
 		stage('Compile') { 
 			steps { 
-				sh "mvn clean compile"
+				sh "mvn clean compile" // Install dependencies and compiles the code
  }
 }
 
@@ -43,6 +43,27 @@ pipeline {
 				}
 			}
 		} 
+
+		stage('Build Docker Image') {
+			steps {
+				//"docker build -t " docker/yourimagefromazure:$env.BUILD_TAG"
+				script {
+					dockerImage = "repository/docker/aurond/wrapper:${env.BUILD_TAG}"
+				}
+			}
+		}
+
+		stage('Docker push') {
+			steps {
+				script {
+					docker.withRegistry('', 'dockerhub') {
+					dockerImage.push();
+					dockerImage.push('latest'); 
+				}
+			}
+		 }
+		}
+
 
 	post {
 		always {
