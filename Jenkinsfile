@@ -42,8 +42,6 @@ pipeline {
 
 				}
 			}
-		} 
-
 		stage('Build Docker Image') {
 			steps {
 				//"docker build -t " docker/yourimagefromazure:$env.BUILD_TAG"
