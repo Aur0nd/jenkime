@@ -75,4 +75,3 @@ pipeline {
 			echo 'Stages failed'
 		}
 	}
-}
