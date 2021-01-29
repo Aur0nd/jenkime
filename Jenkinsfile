@@ -44,9 +44,9 @@ pipeline {
 			}
 		stage('Build Docker Image') {
 			steps {
-				//"docker build -t " docker/yourimagefromazure:$env.BUILD_TAG"
-				script {
-					dockerImage = docker.build("aurond/wrapper:${env.BUILD_TAG}")
+				docker build -t "aurond/wrapper:$env.BUILD_TAG"
+				//script {
+					//dockerImage = docker.build("aurond/wrapper:${env.BUILD_TAG}")
 				}
 			}
 		}
